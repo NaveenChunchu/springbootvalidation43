@@ -24,17 +24,15 @@ public class SignupController {
 	public String doSignup(Model model) {
 		SignupBean signupBean = new SignupBean();
 		model.addAttribute("signupBean",signupBean);
-		
-		logger.info(signupBean.toString());
-
-		
+		//logger.info(signupBean.toString());
 		return "signup";
 	}
      @PostMapping("/signupform")
      
 	public String doSignupForm(@Valid @ModelAttribute("signupBean")SignupBean signupBean,BindingResult errors,Model model) {
 		
-		System.out.println(signupBean);
+		//System.out.println(signupBean);
+ 		logger.info(signupBean.toString());
 		if(errors.hasErrors()) {
 			return"signup";
 		}
